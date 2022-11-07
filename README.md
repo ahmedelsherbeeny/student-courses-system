@@ -1,27 +1,21 @@
 # CoursesSystem
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.5.
+A fully responsive website which displays courses  consists of 
+- home page that displays courses 
+- student requested courses that displays the courses that the student added
+- profile page that displays personal info of the student
 
-## Development server
+## Features of the website
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- suitable for both phone and pc
+- the website is in both languages Arabic and English 
+- student have the ability to filter courses by categories 
+- It is multi filter feature
+- student have the ability to search by course name
+- student can add courses to his cart 
+- student can know the total price of the courses
+- student can add courses from his cart to his todo list 
 
-## Code scaffolding
+## link of the website
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
