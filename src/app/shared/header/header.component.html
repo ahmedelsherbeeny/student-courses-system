@@ -1,0 +1,132 @@
+
+
+
+  <nav *ngIf="rtl=='rtl'" class="navbar navbar-expand-lg " [ngStyle]="rtl=='rtl'?{'direction':'rtl'}:{'direction':'ltr'}">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <div class="logo d-flex align-items-center justify-content-center">
+          <div class="logo-shape"  [ngStyle]="{
+            'margin-left': rtl == 'rtl' ? '17px' : '0'
+          }" >
+            <div class="logo1">
+              <div class="logo2">
+                <div class="logo3"></div>
+              </div>
+            </div>
+          </div>
+          <h3 class="text-header text-light">{{'Learning' | translate}}<span style="color:#54b053 ;">{{'Curve' | translate}}</span></h3>
+
+        </div>  </a>
+      <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse"
+       data-target="#main" aria-controls="main" aria-expanded="false" aria-label="Toggle navigation">
+       <div class="lines">
+        <div class="line-one"></div>
+        <div class="line-two"></div>
+        <div class="line-three"></div>
+       </div>
+      </button>
+      <div class="collapse navbar-collapse m-auto justify-content-end links " id="main">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-light"  [ngStyle]="rtl == 'rtl' ? {'margin-right': 'auto','margin-left':'0px'} : {}" >
+          <li class="nav-item  p-2 p-lg-3  " routerLink="/components/home" routerLinkActive="active">{{'Home' | translate}}</li>
+          <li class="nav-item p-2 p-lg-3 " routerLink="/components/studentCourses/{{studentId}}" routerLinkActive="active">{{'Student Requested Courses' | translate}}</li>
+          <li class="nav-item p-2 p-lg-3 " routerLink="/components/profile/{{studentId}}" routerLinkActive="active">
+
+
+
+    <mat-icon class="icon">account_box</mat-icon>
+
+
+          </li>
+          <li>
+            <select #language name="languages" id="" (click)="changeCurrentLanguage(language.value)" class="mt-3 rounded-pill bg-light">
+              <option value="en" >EN</option>
+              <option value="ar">AR</option>
+
+
+            </select>
+
+          </li>
+
+
+
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <nav *ngIf="rtl=='ltr'" class="navbar navbar-expand-lg sticky-top" [ngStyle]="rtl=='ltr'?{'direction':'ltr'}:{'direction':'rtl'}">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <div class="logo d-flex align-items-center justify-content-center">
+          <div class="logo-shape"  >
+            <div class="logo1">
+              <div class="logo2">
+                <div class="logo3"></div>
+              </div>
+            </div>
+          </div>
+          <h3 class="text-header text-light">{{'Learning' | translate}}<span style="color:#54b053 ;">{{'Curve' | translate}}</span></h3>
+
+        </div>  </a>
+        <button class="navbar-toggler bg-dark" type="button" data-toggle="collapse"
+        data-target="#main" aria-controls="main" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="lines">
+         <div class="line-one"></div>
+         <div class="line-two"></div>
+         <div class="line-three"></div>
+        </div>
+       </button>
+      <div class="collapse navbar-collapse m-auto justify-content-end links " id="main">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-light"  [ngStyle]="rtl == 'ltr' ? {'margin-left': 'auto','margin-right':'0px'} : {}" >
+          <li class="nav-item  p-2 p-lg-3  " routerLink="/components/home" routerLinkActive="active">{{'Home' | translate}}</li>
+          <li class="nav-item p-2 p-lg-3 " routerLink="/components/studentCourses/{{studentId}}" routerLinkActive="active">{{'Student Requested Courses' | translate}}</li>
+          <li class="nav-item p-2 p-lg-3" routerLink="/components/profile/{{studentId}}" routerLinkActive="active">
+
+
+
+    <mat-icon class="icon">account_box</mat-icon>
+
+
+          </li>
+          <li>
+            <select #languages name="languages" id="" (change)="changeCurrentLanguage(languages.value)" class="mt-3 rounded-pill bg-light">
+              <option value="en" >EN</option>
+              <option value="ar">AR</option>
+
+
+            </select>
+
+          </li>
+
+
+
+
+
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,88 @@
+
+
+
+  <div class="requested-courses position-relative ">
+
+
+    <div class="header position-relative start-50 translate-middle-x pb-5 ">
+        <div class="title position-relative">
+            <h3 class="text-light">{{'My Courses' | translate}}</h3>
+        </div>
+    </div>
+
+    <div class="table-responsive ">
+      <table class="table   table-bordered text-light">
+        <thead>
+          <tr>
+            <th scope="col">{{'Course Name' |translate}}</th>
+            <th scope="col">{{'Course Level' | translate}}</th>
+            <th scope="col">{{'Course Duration' | translate}}</th>
+            <th scope="col">{{'Payment Type' | translate}}</th>
+            <th scope="col">{{'Request Date' | translate}}</th>
+            <th scope="col">{{'Course Price' | translate}}</th>
+            <th scope="col">{{'Add in todolist' | translate}}</th>
+
+
+
+
+
+
+          </tr>
+        </thead>
+        <tbody [@listAnimation]="displayData.length">
+          <tr  *ngFor="let course of displayData">
+
+            <td>{{course.CourseName | translate}}</td>
+            <td>{{course.courseLevel | translate}}</td>
+            <td>{{course.CourseDuration}}H</td>
+            <td>{{courseDetails.paymentType | translate}}</td>
+            <td>{{courseDetails.date | date:'shortDate'}}</td>
+            <td>{{course.CoursePrice | currency}}</td>
+            <td><button class="btnAdd" style="width: fit-content;"
+              [disabled]="toDoCourses.includes(course)"
+               (click)="sendCourse(course)">
+
+              {{toDoCourses.includes(course)?listBtnText:'Add to todolist'}}</button></td>
+
+
+
+
+
+
+          </tr>
+
+
+        </tbody>
+      </table>
+
+    </div>
+    <div class="totalPrice text-light d-flex justify-content-center align-items-center  " *ngIf="rtl1=='rtl'" style="direction: rtl;">
+      <span class="fs-6" >{{'TotalPrice' | translate}}</span>:  {{totalPrice | currency}}
+    </div>
+    <div class="totalPrice text-light d-flex justify-content-center align-items-center  " *ngIf="rtl1=='ltr'" >
+      <span class="fs-6" >{{'TotalPrice' | translate}}</span>:  {{totalPrice | currency}}
+    </div>
+
+
+    <app-todo [toDoCourses]="toDoCourses" ></app-todo>
+
+
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

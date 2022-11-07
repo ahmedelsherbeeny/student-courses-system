@@ -1,0 +1,82 @@
+<section style="background-color: #1e1e1e;" [ngStyle]="rtl1=='rtl'?{'direction':'rtl'}:{}">
+  <div class="container py-5">
+    <div class="header position-relative start-50 translate-middle-x pb-5 ">
+      <div class="title position-relative">
+          <h3 class="text-light">{{'My Info' | translate}}</h3>
+      </div>
+  </div>
+
+
+    <div  class="row" @fade>
+      <div class="col-lg-4 ">
+        <div class="card mb-4 text-light" >
+          <div class="box text-center">
+            <div class="image">
+              <img class="image-fluid rounded-circle" src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava3.webp" alt="avatar"
+               >
+
+            </div>
+
+            <h5 class="my-3">{{studentInfo[0].Name}}</h5>
+            <p class="text-light mb-4">{{studentInfo[0].Address}}</p>
+
+          </div>
+        </div>
+
+      </div>
+      <div class="col-lg-8"  >
+        <div  class="card right mb-4 " style="background-color: #54b053;">
+          <div class="card-body" >
+            <div class="row">
+              <div  class="col-sm-3" >
+                <p  class="mb-0 text-dark">{{'ID' | translate}}</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-light mb-0">{{studentInfo[0].Id}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0 text-dark">{{'Full Name' | translate}}</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-light mb-0">{{studentInfo[0].Name}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0 text-dark">{{'Email' | translate}}</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-light mb-0">{{studentInfo[0].Email}}</p>
+              </div>
+            </div>
+            <hr>
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0 text-dark">{{'Mobile' | translate}}</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-light mb-0">{{studentInfo[0].Phone}}</p>
+              </div>
+            </div>
+            <hr>
+
+            <div class="row">
+              <div class="col-sm-3">
+                <p class="mb-0 text-dark">{{'Address' | translate}}</p>
+              </div>
+              <div class="col-sm-9">
+                <p class="text-light mb-0">{{studentInfo[0].Address}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

@@ -1,1 +1,95 @@
 /* You can add global styles to this file, and also import other style files */
+@import"bootstrap/scss/bootstrap.scss";
+@import "src/app/helpers/_variables.scss";
+
+
+
+
+body{
+  font: {
+      family:tahoma;
+      size:16px;
+  };
+
+  margin: 0;
+  padding: 0;
+}
+
+ul,ol{
+  list-style: none;
+  padding: 0;
+}
+
+.container {
+  padding-left: 5px;
+  padding-right: 5px;
+
+  width: 100%;
+  /*
+  @media #{$minSmall} {
+    width: 750px;
+
+}
+@media #{$minMedium} {
+    width: 770px;
+
+}
+@media #{$minLarge} {
+    width: 1170px;
+
+}
+*/
+}
+.active{
+  color:#54b053 ;
+}
+
+.backdrop  .mat-dialog-container{
+  color: black;
+  background: #181818 !important;
+  background-color: #181818 !important;
+
+}
+.zero-margin-right{
+  margin-left: 300px;
+}
+    /* custom scrollbar*/
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      box-shadow: inset 0 0 5px #1e1e1e;
+      border-radius: 10px;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background: grey;
+      border-radius: 10px;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background: grey;
+    }
+    .mat-dialog-container{
+      background-color:#1e1e1e ;
+      color: white;
+    }
+
+
+
+
+
+
+/* anything that needs to be in all pages we put it in global*/
+
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';

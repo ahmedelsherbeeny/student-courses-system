@@ -1,0 +1,111 @@
+<div
+  class="filters text-light p-3 d-flex justify-content-space-between flex-column rounded w-100 h-auto"
+>
+  <div class="filterbyandclose w-100 d-flex justify-content-space-between">
+    <div class="filter-by pb-5 fw-bold fs-6 text-end">
+      {{ "Filter By:" | translate }}
+    </div>
+  </div>
+  <div class="categories" [@listAnimation]="categories.length">
+    <div class="filter" *ngFor="let cat of categories">
+      <h2 class="head fs-6 mb-4">{{ cat.filterBy | translate }}</h2>
+      <div class="options">
+        <label
+          class="container d-block mb-2 pb-4 position-relative"
+          [ngStyle]="rtl1 == 'rtl' ? { right: '10px' } : {}"
+          >{{ cat.f1 | translate }}
+          <input
+            type="checkbox"
+            id="op1"
+            (click)="applyFilter($event)"
+            value="{{ cat.f1 }}"
+          />
+          <span
+            class="checkmark"
+            [ngStyle]="rtl1 == 'rtl' ? { right: '-18px' } : {}"
+          ></span>
+        </label>
+
+        <label
+          class="container d-block mb-2 pb-4 position-relative"
+          [ngStyle]="rtl1 == 'rtl' ? { right: '10px' } : {}"
+          >{{cat.f2 | translate}}
+          <input
+            type="checkbox"
+            id="op2"
+            (click)="applyFilter($event)"
+            value="{{ cat.f2 }}"
+          />
+          <span
+            class="checkmark"
+            [ngStyle]="rtl1 == 'rtl' ? { right: '-18px' } : {}"
+          ></span>
+        </label>
+        <label
+          class="container d-block mb-2 pb-4 position-relative"
+          [ngStyle]="rtl1 == 'rtl' ? { right: '10px' } : {}"
+          >{{ cat.f3 | translate }}
+          <input
+            type="checkbox"
+            id="op3"
+            (click)="applyFilter($event)"
+            value="{{ cat.f3 }}"
+          />
+          <span
+            class="checkmark"
+            [ngStyle]="rtl1 == 'rtl' ? { right: '-18px' } : {}"
+          ></span>
+        </label>
+        <label
+          class="container d-block mb-2 pb-4 position-relative"
+          [ngStyle]="rtl1 == 'rtl' ? { right: '10px' } : {}"
+          >{{ cat.f4 | translate }}
+          <input
+            type="checkbox"
+            id="op4"
+            (click)="applyFilter($event)"
+            value="{{ cat.f4 }}"
+          />
+          <span
+            class="checkmark"
+            [ngStyle]="rtl1 == 'rtl' ? { right: '-18px' } : {}"
+          ></span>
+        </label>
+
+        <label
+          class="container d-block mb-2 pb-4 position-relative"
+          [ngStyle]="rtl1 == 'rtl' ? { right: '10px' } : {}"
+          >{{ cat.f5 | translate }}
+          <input
+            type="checkbox"
+            id="op5"
+            (click)="applyFilter($event)"
+            value="{{ cat.f5 }}"
+          />
+          <span
+            class="checkmark"
+            [ngStyle]="rtl1 == 'rtl' ? { right: '-18px' } : {}"
+          ></span>
+        </label>
+
+        <label
+          class="container d-block mb-2 pb-4 position-relative"
+          [ngStyle]="rtl1 == 'rtl' ? { right: '10px' } : {}"
+          >{{ cat.f6 | translate }}
+          <input
+            type="checkbox"
+            id="op6"
+            (click)="applyFilter($event)"
+            value="{{ cat.f6 }}"
+          />
+          <span
+            class="checkmark"
+            [ngStyle]="rtl1 == 'rtl' ? { right: '-18px' } : {}"
+          ></span>
+        </label>
+      </div>
+    </div>
+
+  </div>
+
+</div>

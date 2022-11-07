@@ -1,0 +1,215 @@
+ <!--math div starts-->
+ <div class="math-div w-100" [ngStyle]="rtl1=='rtl'?{'direction':'rtl'}:{}"  >
+  <div class="row">
+    <div
+      class="two-lines position-absolute top-50 translate-middle-y d-flex flex-column gap-3 col-sm-10 col-md-10 col-lg-7"
+
+        [ngStyle]="rtl1 =='rtl' ? {right: '0px',left:'0px'} : {}"  >
+      <div @fade  class="line-one text-light pe-3 ps-1 justify-content-end align-items-center d-flex w-75"
+
+
+
+      [ngStyle]="rtl1 =='rtl' ? {'margin-right': '-10px',left:'0px' , 'border-radius': '25px 0px 0px 25px '} : {}"
+
+      >{{'ONLINE LEARNING' | translate}}
+
+      </div>
+      <div @fade
+        class="line-two lh-sm d-flex justify-content-end align-items-center p-sm-3 pt-2 pb-2 pe-3 text-light w-100"
+
+        [ngStyle]="rtl1 == 'rtl' ? {'margin-right': '-10px',left:'0px' , 'border-radius': '25px 0px 0px 25px '} : {}"
+
+      >
+       {{' study any topic, anytime.Explore thousands of courses starting at $11.99
+        each' | translate}}
+      </div>
+    </div>
+  </div>
+
+  <div class="text mb-4 position-absolute start-50 translate-middle-x">
+    <h1>MATH</h1>
+  </div>
+</div>
+<!--math div ends-->
+
+
+
+  <!--home div starts-->
+
+
+
+  <div class="home" [ngStyle]="rtl1=='rtl'?{'direction':'rtl'}:{}"  >
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+        <i
+          class="fa fa-filter"
+          aria-hidden="true"
+          value="sidebarclosed"
+          style="color: white; font-size: 35px"
+          (click)="toggleSideBar()"
+          *ngIf="devicexs"
+
+        ></i>
+
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 text-light" >
+          <li>
+            <div class="for-search">
+              <input
+                matInput
+                placeholder="{{'Search by course name' | translate}}"
+                [(ngModel)]="searchword"
+                (keyup)="search($event)"
+              />
+              <mat-icon    [ngStyle]="rtl1 == 'rtl' ? {right: '87%'} : {}"
+              >search</mat-icon>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+
+    <mat-sidenav-container>
+      <mat-sidenav
+        *ngIf="!devicexs"
+        opened
+        mode="side"
+        #sidenav="matSidenav"
+        class="mat-elevation-z8"
+        [ngStyle]="rtl1 == 'rtl' ? {'text-align': 'right'} : {}"
+      >
+        <app-side-nav (filter)="filterCourses($event)"></app-side-nav>
+      </mat-sidenav>
+      <mat-sidenav
+        *ngIf="devicexs"
+        [opened]="isOpen"
+        mode="over"
+        #sidenav="matSidenav"
+        class="mat-elevation-z8"
+        [ngStyle]="rtl1 == 'rtl' ? {'text-align': 'right'} : {}"
+
+      >
+        <app-side-nav (filter)="filterCourses($event)"></app-side-nav>
+      </mat-sidenav>
+      <mat-sidenav-content *ngIf="rtl1=='ltr'"    style="margin-right: 0; margin-left: 300px;"
+      [ngStyle]="rtl1 == 'ltr' && devicexs == true ? {'margin-left': '0px'} : {}"
+  >
+  <div class="content mat-elevation-z8"  >
+   <ul style="position: relative;">
+     <li><a class="head"   >{{'All Courses' | translate}}</a></li>
+   </ul>
+
+   <div class="boxes" [@listAnimation]="courses.length">
+     <div
+     [ngStyle]="rtl1 == 'ltr' ? {'direction': 'rtl'} : {}"
+       class="box"
+       *ngFor="
+         let course of courses | searchCourse: searchKey:'CourseName'
+       "
+
+     >
+       <div class="image-holder img-fluid">
+         <img [src]="course.CourseImg" alt="" />
+       </div>
+       <div class="title">
+         <h3 class="title-text">
+           {{'Learning how to learn is always the key: book now' | translate}}
+         </h3>
+       </div>
+       <div class="level-number">
+         <h4 class="level">{{ course.courseLevel | translate }}</h4>
+         <h4 class="number">
+           {{ course.AvailableSeats | translate }}
+           <i
+
+             class="fa fa-users red-green-Icon"
+             aria-hidden="true"
+             [ngStyle]="{
+               'color': course.AvailableSeats >= 10 ? 'Green' : 'Red'
+             }"
+           ></i>
+         </h4>
+       </div>
+       <div class="duration-price-button">
+         <div class="duration">{{ course.CourseDuration }}h</div>
+         <div class="price">{{ course.CoursePrice }}$</div>
+         <button class="add" (click)="addCourse(course)"
+          [disabled]="studentCourses.includes(course.CourseId) || course.AvailableSeats == 0">
+           {{studentCourses.includes(course.CourseId)?cartText:'Add to cart' | translate}}</button>
+       </div>
+     </div>
+   </div>
+  </div>
+  </mat-sidenav-content>
+      <mat-sidenav-content *ngIf="rtl1=='rtl'"    style="margin-left: 0; margin-right: 320px;"
+      [ngStyle]="rtl1 == 'rtl' && devicexs == true ? {'margin-right': '0px'} : {}"
+      >
+        <div class="content mat-elevation-z8"  >
+          <ul style="position: relative;">
+            <li><a class="head"  >{{'All Courses' | translate}}</a></li>
+          </ul>
+
+          <div class="boxes"  [@listAnimation]="courses.length">
+            <div
+            [ngStyle]="rtl1 == 'rtl' ? {'direction': 'rtl'} : {}"
+              class="box"
+              *ngFor="
+                let course of courses | searchCourse: searchKey:'CourseName'
+              "
+
+            >
+              <div class="image-holder img-fluid">
+                <img [src]="course.CourseImg" alt="" />
+              </div>
+              <div class="title">
+                <h3 class="title-text">
+                  {{'Learning how to learn is always the key: book now' | translate}}
+                </h3>
+              </div>
+              <div class="level-number">
+                <h4 class="level">{{ course.courseLevel | translate }}</h4>
+                <h4 class="number">
+                  {{ course.AvailableSeats | translate }}
+                  <i
+                  [class.icon-text]="rtl1 == 'rtl'"
+
+                    class="fa fa-users red-green-Icon"
+                    aria-hidden="true"
+                    [ngStyle]="{
+                      'color': course.AvailableSeats >= 10 ? 'Green' : 'Red'
+                    }"
+                  ></i>
+                </h4>
+              </div>
+              <div class="duration-price-button" [ngStyle]="rtl1=='rtl' ?{'flex-direction': 'row-reverse'
+              }:{}">
+                <div class="duration">{{ course.CourseDuration }}h</div>
+                <div class="price">{{ course.CoursePrice }}$</div>
+                <button class="add" (click)="addCourse(course)" *ngIf="rtl1 =='ltr'"
+                 [disabled]="studentCourses.includes(course.CourseId) || course.AvailableSeats == 0">
+                  {{studentCourses.includes(course.CourseId)?cartText:'Add to cart' }}</button>
+
+                  <button class="add" (click)="addCourse(course)" *ngIf="rtl1 =='rtl'"
+                  [disabled]="studentCourses.includes(course.CourseId) || course.AvailableSeats == 0">
+                   {{studentCourses.includes(course.CourseId)?cartTextArabic:'اضف الى القائمه '}}</button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </mat-sidenav-content>
+
+
+    </mat-sidenav-container>
+  </div>
+
+
+
+
+
+
+<!--home div ends-->
+
+
+
+

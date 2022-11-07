@@ -1,0 +1,82 @@
+<div class="todo d-flex flex-column align-items-center p-3 position-relative">
+  <div class="header position-relative  pb-5 ">
+    <div class="title position-relative">
+        <h3 class="text-light">{{'Todo List' | translate}}</h3>
+    </div>
+</div>
+
+
+  <p class="date d-flex justify-content-center text-start ms-0">{{ _day }} {{ _month }} {{ _dayNum }} {{ _year }}</p>
+
+
+    <div @fade class="task-text d-flex  justify-content-center gap-4 text-light" *ngFor="let course of toDoCourses; let i=index "  >
+
+
+      <label    class="container d-flex pb-1    position-relative justify-content-center    "
+      >
+      <input type="checkbox" id="op5"  />
+      <div class="text text-start" >{{course.CourseName | translate
+      }}</div>
+      <span class="checkmark"></span>
+    </label>
+    <button class="btn btn-danger mb-3 rounded-pill " (click)="deleteFromToDo(course)"> {{'delete' |translate}}</button>
+
+    </div>
+
+
+
+
+
+
+
+
+<!--
+  <div class="done-tasks d-flex align-items-center justify-content-start text-start gap-2  flex-column mt-2 pt-3">
+
+   <div class="task-time d-flex justify-content-center align-items-center gap-3 position-relative pt-3 pb-4">
+      <div class="all-task d-flex justify-content-center  gap-4  ">
+        <div class="time  align-items-center d-flex justify-content-center">
+          <div class="carousel position-relative pb-4">
+            <div class="parent-fotItems d-flex justify-content-center gap-2 flex-row align-items-center">
+              <div
+                class="item rounded-circle d-flex align-items-center justify-content-center p-3"
+                *ngFor="let item of arr; let i = index"
+                #ele
+                (click)="showDay($event, ele)"
+              >
+                {{ item }}
+              </div>
+            </div>
+
+            <button class="previous position-absolute text-light fs-5 justify-content-center align-items-center d-flex bg-transparent " appPrevious>&laquo;</button>
+            <button class="next position-absolute text-light fs-5 justify-content-center align-items-center d-flex bg-transparent " appNext>&raquo;</button>
+          </div>
+
+          <div class="hour">6am</div>
+
+
+          </div>
+        <div class="line">||</div>
+
+        <label class="container d-flex position-relative "
+          >
+          <input type="checkbox" id="op1" />
+          <h3 class="task-text d-block">less than 2 hours</h3>
+
+          <span class="checkmark top-50 start-0 translate-middle"></span>
+        </label>
+
+      </div>
+
+    </div>
+      </div>
+
+-->
+
+
+
+
+
+
+
+</div>

@@ -1,0 +1,86 @@
+
+
+@import "src/app/helpers/_variables.scss";
+@import "src/app/helpers/_mixins.scss";
+
+
+.card  .box .image img{
+  max-width: 100%;
+  width: 100%;
+  transition: 0.3s;
+
+}
+.card  .box {
+  padding: 15px;
+  background-color:#54b053;
+  box-shadow: 0px 12px 20px 0px rgb(0 0 0/ 13%), 0px 2px 4px 0px rgb(0 0 0/ 12%);
+}
+
+.card  .box .image{
+  position: relative;
+  overflow: hidden;
+}
+.card  .box .image::before{
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-color: rgb(255 255 255 / 40%);
+  height: 0px;
+  width: 0px;
+  opacity: 0;
+  z-index: 2;
+}
+.card  .box .image:hover::before{
+  animation: flashing 0.7s ;
+
+}
+.card  .box .image:hover img{
+  transform: rotate(6deg) scale(1.1);
+}
+
+@keyframes flashing{
+  0%,40%{
+      opacity: 1;
+  }
+  100%{
+      opacity: 0;
+      height: 200%;
+      width: 200%;
+  }
+}
+
+.right{
+  .row{
+    position: relative;
+
+    &::before{
+      position: absolute;
+      content: "";
+      width: 0%;
+      height: 3px;
+      background-color: white;
+      top: -17px;
+      left: -5px;
+      transition: 0.3s;
+    }
+    &:hover::before{
+      width: 100%;
+
+    }
+
+  }
+
+
+
+}
+.title{
+  @include titleStyle;
+
+
+  h3{
+    font-size: 25px;
+
+  }
+}

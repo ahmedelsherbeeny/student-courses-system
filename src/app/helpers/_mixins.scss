@@ -1,0 +1,143 @@
+%centering {
+  display: flex;
+  align-items: center;
+
+}
+
+%active {
+  &:hover{
+    color:#54b053 !important ;
+    cursor: pointer;
+  }
+
+
+}
+@mixin titleStyle{
+
+  height: 80px;
+    background: linear-gradient(to left, #201b1a, #2c2929, #201b1a);
+    text-align: center;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    justify-content: center;
+    z-index: 1;
+    transition-delay: 0.5s;
+
+    &::before{
+      left: -15px;
+
+    }
+    &::after{
+      right: -15px;
+
+    }
+    &:hover{
+      border: 2px solid white;
+      transition-delay: 0.5s;
+  }
+  &::before,  &::after{
+    content: "";
+    position: absolute;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #54b053;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  &:hover::before{
+    animation: left-move 0.5s linear forwards;
+    z-index: -1;
+  }
+  &:hover::after{
+    animation: right-move 0.5s linear forwards;
+    z-index: -1;
+
+  }
+
+}
+
+@mixin linkStyles{
+  position: relative;
+  transition: $main-transition;
+
+
+  &:hover  {
+    @extend %active;
+
+  }
+
+  &::after {
+    right: -7.5px;
+    bottom: 0;
+  }
+
+  &::before {
+    left: -7.5px;
+    top: 0;
+  }
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 0;
+    background-color: white;
+    transition: $main-transition;
+  }
+
+  &:hover::before,
+  &:hover::after {
+    height: 100%;
+  }
+
+
+}
+
+@mixin btnStyle{
+  background: linear-gradient(to right, #54b053 50%, white 50%);
+  background-size: 200% 100%;
+  background-position: right;
+  color: #54b053;
+  outline: none;
+  border: none;
+  border-radius: 4px;
+  width: fit-content;
+  transition: 0.4s;
+
+}
+
+
+
+/* animation*/
+
+@keyframes left-move{
+  50%{
+      left: 0;
+      height: 12px;
+      width: 12px;
+
+  }
+  100%{
+      height: 100%;
+      width: 50%;
+      left: 0;
+      border-radius: 0;
+  }
+}
+
+@keyframes right-move{
+  50%{
+      right: 0;
+      height: 12px;
+      width: 12px;
+
+  }
+  100%{
+      height: 100%;
+      width: 50%;
+      right: 0;
+      border-radius: 0;
+  }
+}
